@@ -1,20 +1,25 @@
-my_msec = 0
+my_msec = 500
+
+F2::
 
 curr_time := "Initial Time Is " . A_Sec . "Sec " . A_MSec . "MSec" . "`r"
 acc_time = % acc_time . curr_time
 
-while (A_MSec <= my_msec + 100)
+while (my_msec <= A_MSec AND A_MSec <= my_msec + 100)
 {
 }
 
-while !(A_MSec <= my_msec + 100)
+while !(my_msec <= A_MSec AND A_MSec <= my_msec + 100)
 {
-  curr_time := "Current Time Is " . A_Sec . "Sec " . A_MSec . "MSec"
 }
 
-curr_time := . "`r" . "Current Time Is " . A_Sec . "Sec " . A_MSec . "MSec" . "`r"
+my_msec := A_MSec
+send {enter}
+
+curr_time := "`r" . "Current Time Is " . A_Sec . "Sec " . my_msec . "MSec" . "`r"
 acc_time = % acc_time . curr_time
-
 MsgBox % acc_time
 
-return
+acc_time =
+
+Return
